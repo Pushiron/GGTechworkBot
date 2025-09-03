@@ -12,7 +12,8 @@ if not API_TOKEN:
     raise ValueError("❌ TELEGRAM_API_TOKEN is not set!")
 
 # Разрешённые пользователи (ID)
-ALLOWED_USERS = {645755081, 201850955, 201473362, 928133422, 263879658, 1389666510}
+allowed_users_env = os.getenv("ALLOWED_USERS", "")
+ALLOWED_USERS = [int(user_id) for user_id in allowed_users_env.split(",") if user_id]
 
 target_chats_env = os.getenv("TARGET_CHATS", "")
 
