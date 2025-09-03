@@ -14,17 +14,10 @@ if not API_TOKEN:
 # Разрешённые пользователи (ID)
 ALLOWED_USERS = {645755081, 201850955, 201473362, 928133422, 263879658, 1389666510}
 
+target_chats_env = os.getenv("TARGET_CHATS", "")
+
 # Чаты
-TARGET_CHATS = [
-    -4943149624 #Местные
-    #-4231782629, #Хорека
-    #-4851122930, #Онлайн заявочник
-    #-4179421868, #Сибэкс
-    #-1002187443869, #Планшеты
-    #-4192894206, #Нижнеудинск
-    #-4173517051, #GG
-    #-1002217495330 #АК
-]
+TARGET_CHATS = [int(chat_id) for chat_id in target_chats_env.split(",") if chat_id]
 
 bot = Bot(token=API_TOKEN, default=DefaultBotProperties(parse_mode='HTML'))
 dp = Dispatcher()
