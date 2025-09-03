@@ -1,9 +1,11 @@
 import asyncio
+import os
+
 from aiogram import Bot, Dispatcher, F
 from aiogram.types import Message
 from aiogram.client.bot import DefaultBotProperties
 
-API_TOKEN = "8035684778:AAGNHBd67M6kUZPPrp2QaAUwE__Q5gtM8Qg"
+API_TOKEN = os.getenv("TELEGRAM_API_TOKEN")
 
 # Разрешённые пользователи (ID)
 ALLOWED_USERS = {645755081, 201850955, 201473362, 928133422, 263879658, 1389666510}
